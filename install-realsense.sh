@@ -6,6 +6,7 @@ sudo apt-get install libglfw3-dev
 
 git clone https://github.com/IntelRealSense/librealsense.git
 cd librealsense
+git checkout tags/v1.12.1
 mkdir build
 cd build
 
