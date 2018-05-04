@@ -28,3 +28,11 @@ opencv-rs-ir-1:
 .PHONY: opencv-rs-ir-2
 opencv-rs-ir-2:
 	$(CXX) opencv-rs-ir-2.cpp $(RSFLAGS) $(OCVFLAGS) -o bin/opencv-rs-ir-2
+
+.PHONY: depthExperiment1
+depthExperiment1:
+	$(CXX) depthExperiment1.cpp $(RSFLAGS) $(OCVFLAGS) -o bin/depthExperiment1
+
+.PHONY: depthWithTape
+depthWithTape:
+	$(CXX) depthWithTape.cpp $(RSFLAGS) $(OCVFLAGS) -o bin/depthWithTape

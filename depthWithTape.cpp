@@ -125,9 +125,21 @@ bool display_next_frame(int depthFrameId )
     // < 800
     cv::Mat depth8u = depth16;
     depth8u.convertTo( depth8u, CV_8UC1, 255.0/1000 );
-   // cv::imwrite("/home/joebuntutest/rawDepthData/Experiment2/depthFrame_"+std::to_string(depthFrameId)+".png",depth8u);
+    cv::imwrite("/home/joebuntutest/rawDepthData/Experiment2/depthFrame_"+std::to_string(depthFrameId)+".png",depth8u);
+    
     imshow( WINDOW_DEPTH, depth8u );
     cvWaitKey( 1 );
+
+
+    //cv::Mat joe = cv::Mat::zeros(300,300) ;
+    cv::Mat thres_depth ; 
+    cv::GaussianBlur( depth8u, depth8u, cv::Size(5 ,5),0,0, cv::BORDER_DEFAULT );
+    imshow("depth_w/GaussianBlur",depth8u);
+    cv::threshold(depth8u,thres_depth,20,255,cv::THRESH_BINARY);
+
+    
+   
+    imshow("thres_depth",thres_depth);
 
     cv::cvtColor( rgb, rgb, cv::COLOR_BGR2RGB );
     imshow( WINDOW_RGB, rgb );
